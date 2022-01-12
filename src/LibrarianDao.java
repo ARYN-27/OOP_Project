@@ -1,4 +1,4 @@
-////package mainlibrary;
+package mainlibrary;
 
 import java.sql.*;
 public class LibrarianDao {

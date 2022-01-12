@@ -1,12 +1,16 @@
-//Code_OOP
-////package mainlibrary;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package mainlibrary;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-//Check
+
 public class DB {
     
 
@@ -20,7 +24,7 @@ public class DB {
     props.put("useServerPrepStmts", "false"); // use client-side prepared statement
     props.put("characterEncoding", "UTF-8"); // ensure charset is utf8 here
 
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/library",props);
 		}catch(ClassNotFoundException | SQLException e){System.out.println(e);}
 		return con;

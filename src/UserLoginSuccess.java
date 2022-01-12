@@ -1,11 +1,18 @@
-//Code_OOP
-//package mainlibrary;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package mainlibrary;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-//Check
+/**
+ *
+ * @author bikash
+ */
 public class UserLoginSuccess extends javax.swing.JFrame {
     
     public static String GetName,GetRegDate,GetEmail,GetUserID;
