@@ -46,18 +46,19 @@ public class UsersDBConn {
     
     
 
-    public  static int AddUser(String User, String UserPass, String UserEmail, String Date) {
+    public  static int AddUser(String User, String UserPass, String UserEmail, String Date, String MatricsNum) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
        
          int status =0;
          try{
         
              try (Connection con = DB.getConnection()) {
-                 PreparedStatement ps= con.prepareStatement("insert into Users(UserPass,RegDate,UserName,Email) values(?,?,?,?)");
+                 PreparedStatement ps= con.prepareStatement("insert into Users(UserPass,RegDate,UserName,MatricsNo,Email) values(?,?,?,?,?)");
                  ps.setString(1,UserPass);
                  ps.setString(2,Date);
                  ps.setString(3,User);
-                 ps.setString(4,UserEmail);
+                 ps.setString(4,MatricsNum);
+                 ps.setString(5,UserEmail);
                  status =ps.executeUpdate();
              }
 }catch(SQLException e){System.out.println(e);}

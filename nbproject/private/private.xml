@@ -5,20 +5,23 @@
         <group>
             <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/AllStudent.java</file>
             <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/UserView.java</file>
+            <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/UsersDBConn.java</file>
             <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/UserForm.java</file>
             <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/DeleteBook.java</file>
-            <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/TransBookDao.java</file>
             <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/LibrarianSuccess.java</file>
             <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/NewView.java</file>
             <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/ReturnBookForm.java</file>
             <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/UserLogin.java</file>
             <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/MainLibrary.java</file>
+            <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/TransBookDBConn.java</file>
             <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/DB.java</file>
             <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/IssueBookForm.java</file>
+            <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/LibrarianDBConn.java</file>
             <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/UserViewBook.java</file>
             <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/LibrarianLogin.java</file>
             <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/ViewBook.java</file>
             <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/BookForm.java</file>
+            <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/BookDBConn.java</file>
             <file>file:/D:/Documents/Degree%20Archive/SEM%203/BIC20904%20PENGATURCARAAN%20BERORIENTASIKAN%20OBJEK/Project/Code/src/library/UserLoginSuccess.java</file>
         </group>
     </open-files>
