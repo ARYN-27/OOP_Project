@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch MainLibrary",
+            "request": "launch",
+            "mainClass": "library.MainLibrary",
+            "projectName": "Code_7a1982bd"
+        },
+        {
+            "type": "java",
+            "name": "Launch UserForm",
+            "request": "launch",
+            "mainClass": "library.UserForm",
+            "projectName": "Code_7a1982bd"
+        },
+        {
+            "type": "java",
             "name": "Launch IssueBookForm",
             "request": "launch",
             "mainClass": "IssueBookForm",

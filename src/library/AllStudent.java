@@ -36,7 +36,7 @@ public class AllStudent extends javax.swing.JFrame {
         // String Data[][]=null;
         // String Column[]=null;
         try (Connection Con = DB.getConnection()) {
-            PreparedStatement ps = Con.prepareStatement("select * from Users", ResultSet.TYPE_SCROLL_SENSITIVE,
+            PreparedStatement ps = Con.prepareStatement("select MatricsNo, UserName, Email, RegDate from Users", ResultSet.TYPE_SCROLL_SENSITIVE,
                     ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = ps.executeQuery();
 
@@ -202,12 +202,12 @@ public class AllStudent extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addGap(103, 103, 103)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1464, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(698, 698, 698)
                         .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,7 +238,7 @@ public class AllStudent extends javax.swing.JFrame {
         // String Data[][]=null;
         // String Column[]=null;
         try (Connection Con = DB.getConnection()) {
-            PreparedStatement ps = Con.prepareStatement("select * from Users", ResultSet.TYPE_SCROLL_SENSITIVE,
+            PreparedStatement ps = Con.prepareStatement("select MatricsNo, UserName, Email, RegDate from Users", ResultSet.TYPE_SCROLL_SENSITIVE,
                     ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = ps.executeQuery();
 
@@ -290,7 +290,7 @@ public class AllStudent extends javax.swing.JFrame {
             
             String Search = "%" + SearchField.getText() + "%";
             try (Connection Con = DB.getConnection()) {
-                PreparedStatement ps = Con.prepareStatement("select * from Users where UserName like ?",
+                PreparedStatement ps = Con.prepareStatement("select MatricsNo, UserName, Email, RegDate from Users where UserName like ?",
                         ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
                 ps.setString(1, Search);
                 ResultSet rs = ps.executeQuery();
@@ -337,7 +337,7 @@ public class AllStudent extends javax.swing.JFrame {
             
             String Search = "%" + SearchField.getText() + "%";
             try (Connection Con = DB.getConnection()) {
-                PreparedStatement ps = Con.prepareStatement("select * from Users where Email like ?",
+                PreparedStatement ps = Con.prepareStatement("select MatricsNo, UserName, Email, RegDate from Users where Email like ?",
                         ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
                 ps.setString(1, Search);
                 ResultSet rs = ps.executeQuery();
