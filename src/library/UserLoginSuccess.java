@@ -10,6 +10,7 @@ package library;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class UserLoginSuccess extends javax.swing.JFrame {
@@ -242,10 +243,8 @@ public class UserLoginSuccess extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new UserLoginSuccess().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new UserLoginSuccess().setVisible(true);
         });
         
         String User=args[0];
@@ -267,7 +266,7 @@ public class UserLoginSuccess extends javax.swing.JFrame {
             Con.close();
         
        
-         }catch(Exception f){System.out.println(f);}
+         }catch(SQLException f){System.out.println(f);}
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -194,12 +194,12 @@ public class ReturnBookForm extends javax.swing.JFrame {
         
      
         
-        if(TransBookDao.BookValidate(BookID.getText()) && TransBookDao.UserValidate(UserID.getText()))
+        if(TransBookDBConn.BookValidate(BookID.getText()) && TransBookDBConn.UserValidate(UserID.getText()))
         {
-               if(TransBookDao.CheckIssuedBook(BookIDV))
+               if(TransBookDBConn.CheckIssuedBook(BookIDV))
                {
                    
-                   if(TransBookDao.ReturnBook(BookIDV, UserIDV)!=0)
+                   if(TransBookDBConn.ReturnBook(BookIDV, UserIDV)!=0)
                    {
                         JOptionPane.showMessageDialog(ReturnBookForm.this, "Book is returned by the User!","Returning Book Successfull!", JOptionPane.ERROR_MESSAGE);
                         UserID.setText("");
@@ -213,10 +213,10 @@ public class ReturnBookForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(ReturnBookForm.this, "The Book  is NOT Issued by THIS User!","Issuing Book Error!", JOptionPane.ERROR_MESSAGE);
         }
         else
-        {    if(TransBookDao.UserValidate(UserID.getText()))
+        {    if(TransBookDBConn.UserValidate(UserID.getText()))
                     JOptionPane.showMessageDialog(ReturnBookForm.this, "The Book  is NOT available in Library Database!","Returning Book Error!", JOptionPane.ERROR_MESSAGE);
              else
-                if(TransBookDao.BookValidate(BookID.getText()))
+                if(TransBookDBConn.BookValidate(BookID.getText()))
                     JOptionPane.showMessageDialog(ReturnBookForm.this, "The User is NOT available in Library Database!","Returning Book Error!", JOptionPane.ERROR_MESSAGE);
                  else
             JOptionPane.showMessageDialog(ReturnBookForm.this, "The Book  and User are NOT available in Library Database!","Returning Book Error!", JOptionPane.ERROR_MESSAGE);

@@ -8,9 +8,7 @@ import static library.LibrarianSuccess.ThisLogined;
 
 public class BookForm extends javax.swing.JFrame {
     
-    /**
-     * Creates new form BookForm
-     */
+    
     public BookForm() {
         initComponents();
     }

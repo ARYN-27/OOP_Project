@@ -7,7 +7,7 @@ package library;
  */
 
 
-import java.awt.HeadlessException;
+//import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,8 +17,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+//import javax.swing.JScrollPane;
+//import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -43,21 +43,7 @@ public class NewView extends javax.swing.JFrame {
            ResultSetMetaData rsmd = rs.getMetaData();
   
             int colnum=rsmd.getColumnCount();
-        
-            
-            
-         /*   Column = new String[colnum];
-            for(int i=1;i<=colnum;i++){
-               Column[i-1]=rsmd.getColumnClassName(i);
-                }
-            rs.last();
-            
-            int rows=rs.getRow();
-            rs.beforeFirst();
-            
-            String[][] data = new String[rows][colnum];
-            
-            int count=0; */
+                        
             String Row[];
             Row = new String[colnum];
             while(rs.next()){

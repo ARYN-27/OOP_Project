@@ -7,7 +7,7 @@ package library;
  */
 
 
-import java.awt.HeadlessException;
+//import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,8 +17,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+//import javax.swing.JScrollPane;
+//import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -34,8 +34,7 @@ public class UserViewBook extends javax.swing.JFrame {
         initComponents();
         DefaultTableModel model;
         model = (DefaultTableModel) jTable1.getModel();
-       // String Data[][]=null;
-      //  String Column[]=null;
+       
         try(Connection Con = DB.getConnection()) {
             PreparedStatement ps=Con.prepareStatement("select Books.BookID, Books.BookName,Books.Genre,Books.Author,Books.Publisher, Books.Row,Books.Shelf, IssuedBook.UserID from Books left outer join IssuedBook on Books.BookID= IssuedBook.BookID;",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
             ResultSet rs= ps.executeQuery();
@@ -43,21 +42,7 @@ public class UserViewBook extends javax.swing.JFrame {
            ResultSetMetaData rsmd = rs.getMetaData();
   
             int colnum=rsmd.getColumnCount();
-        
-            
-            
-         /*   Column = new String[colnum];
-            for(int i=1;i<=colnum;i++){
-               Column[i-1]=rsmd.getColumnClassName(i);
-                }
-            rs.last();
-            
-            int rows=rs.getRow();
-            rs.beforeFirst();
-            
-            String[][] data = new String[rows][colnum];
-            
-            int count=0; */
+ 
             String Row[];
             String Check="";
             Row = new String[colnum];
@@ -253,7 +238,7 @@ public class UserViewBook extends javax.swing.JFrame {
 
     private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
         // TODO add your handling code here:
-        if(SearchField.getText()=="")
+        if("".equals(SearchField.getText()))
       JOptionPane.showMessageDialog(UserViewBook.this, "Search Filed is Empty","Search Error!", JOptionPane.ERROR_MESSAGE);
 
         if(!ALL.isSelected())
@@ -345,9 +330,7 @@ public class UserViewBook extends javax.swing.JFrame {
         
         else if(AuthorRadio.isSelected())
         {
-            
-       // String Data[][]=null;
-      //  String Column[]=null;
+       
             String Search = "%"+SearchField.getText()+"%";
         try(Connection Con = DB.getConnection()) {
             PreparedStatement ps=Con.prepareStatement("select A.BookID, A.BookName,A.Genre,A.Author,A.Publisher, A.Row,A.Shelf, IssuedBook.UserID from (select * from Books where Author like ?) as A left outer join IssuedBook on A.BookID= IssuedBook.BookID",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
@@ -472,20 +455,7 @@ public class UserViewBook extends javax.swing.JFrame {
   
             int colnum=rsmd.getColumnCount();
         
-            
-            
-         /*   Column = new String[colnum];
-            for(int i=1;i<=colnum;i++){
-               Column[i-1]=rsmd.getColumnClassName(i);
-                }
-            rs.last();
-            
-            int rows=rs.getRow();
-            rs.beforeFirst();
-            
-            String[][] data = new String[rows][colnum];
-            
-            int count=0; */
+         
             String Row[];
             String Check="";
             Row = new String[colnum];

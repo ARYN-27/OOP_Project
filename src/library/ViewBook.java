@@ -7,7 +7,7 @@ package library;
  */
 
 
-import java.awt.HeadlessException;
+//import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,8 +17,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+//import javax.swing.JScrollPane;
+//import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -33,8 +33,7 @@ public class ViewBook extends javax.swing.JFrame {
         initComponents();
         DefaultTableModel model;
         model = (DefaultTableModel) jTable1.getModel();
-       // String Data[][]=null;
-      //  String Column[]=null;
+       
         try(Connection Con = DB.getConnection()) {
             PreparedStatement ps=Con.prepareStatement("select * from Books",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
             ResultSet rs= ps.executeQuery();
@@ -44,20 +43,7 @@ public class ViewBook extends javax.swing.JFrame {
             int colnum=rsmd.getColumnCount();
         
             NameRadio.setSelected(true);
-            
-            
-         /*   Column = new String[colnum];
-            for(int i=1;i<=colnum;i++){
-               Column[i-1]=rsmd.getColumnClassName(i);
-                }
-            rs.last();
-            
-            int rows=rs.getRow();
-            rs.beforeFirst();
-            
-            String[][] data = new String[rows][colnum];
-            
-            int count=0; */
+         
             String Row[];
             Row = new String[colnum];
             while(rs.next()){
@@ -94,7 +80,7 @@ public class ViewBook extends javax.swing.JFrame {
         SearchField = new javax.swing.JTextField();
         Search = new javax.swing.JButton();
         AuthorRadio = new javax.swing.JRadioButton();
-        ALL = new javax.swing.JRadioButton();
+        Reset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -160,10 +146,10 @@ public class ViewBook extends javax.swing.JFrame {
             }
         });
 
-        ALL.setText("ALL");
-        ALL.addActionListener(new java.awt.event.ActionListener() {
+        Reset.setText("Reset");
+        Reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ALLActionPerformed(evt);
+                ResetActionPerformed(evt);
             }
         });
 
@@ -183,8 +169,8 @@ public class ViewBook extends javax.swing.JFrame {
                         .addComponent(NameRadio)
                         .addGap(42, 42, 42)
                         .addComponent(AuthorRadio)
-                        .addGap(359, 359, 359)
-                        .addComponent(ALL)))
+                        .addGap(65, 65, 65)
+                        .addComponent(Reset)))
                 .addContainerGap(843, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -193,8 +179,8 @@ public class ViewBook extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NameRadio)
                     .addComponent(AuthorRadio)
-                    .addComponent(ALL))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                    .addComponent(Reset))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Search))
@@ -206,7 +192,7 @@ public class ViewBook extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 48, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(83, 83, 83))
             .addGroup(layout.createSequentialGroup()
@@ -233,7 +219,7 @@ public class ViewBook extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
@@ -251,7 +237,7 @@ public class ViewBook extends javax.swing.JFrame {
     private void NameRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameRadioActionPerformed
         // TODO add your handling code here:
         AuthorRadio.setSelected(false);
-        ALL.setSelected(false);
+        Reset.setSelected(false);
     }//GEN-LAST:event_NameRadioActionPerformed
 
     private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
@@ -263,8 +249,7 @@ public class ViewBook extends javax.swing.JFrame {
             model.removeRow(model.getRowCount()-1);
         if(NameRadio.isSelected())
         {
-       // String Data[][]=null;
-      //  String Column[]=null;
+       
             String Search = "%"+SearchField.getText()+"%";
         try(Connection Con = DB.getConnection()) {
             PreparedStatement ps=Con.prepareStatement("select * from Books where BookName like ?",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
@@ -313,9 +298,7 @@ public class ViewBook extends javax.swing.JFrame {
         
         else if(AuthorRadio.isSelected())
         {
-            
-       // String Data[][]=null;
-      //  String Column[]=null;
+        
             String Search = "%"+SearchField.getText()+"%";
         try(Connection Con = DB.getConnection()) {
             PreparedStatement ps=Con.prepareStatement("select * from Books where Author like ?",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
@@ -387,59 +370,46 @@ public class ViewBook extends javax.swing.JFrame {
     private void AuthorRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AuthorRadioActionPerformed
         // TODO add your handling code here:
         NameRadio.setSelected(false);
-        ALL.setSelected(false);
+        Reset.setSelected(false);
     }//GEN-LAST:event_AuthorRadioActionPerformed
 
-    private void ALLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALLActionPerformed
+    private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
         // TODO add your handling code here:
-          NameRadio.setSelected(false);
-          AuthorRadio.setSelected(false);
-          SearchField.setText("");
-          DefaultTableModel model;
+        NameRadio.setSelected(false);
+        AuthorRadio.setSelected(false);
+        SearchField.setText("");
+        DefaultTableModel model;
         model = (DefaultTableModel) jTable1.getModel();
-          while(model.getRowCount()>0)
-            model.removeRow(model.getRowCount()-1);
-       // String Data[][]=null;
-      //  String Column[]=null;
-        try(Connection Con = DB.getConnection()) {
-            PreparedStatement ps=Con.prepareStatement("select * from Books",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-            ResultSet rs= ps.executeQuery();
+        while (model.getRowCount() > 0)
+            model.removeRow(model.getRowCount() - 1);
+        // String Data[][]=null;
+        // String Column[]=null;
+        try (Connection Con = DB.getConnection()) {
+            PreparedStatement ps = Con.prepareStatement("select * from Books", ResultSet.TYPE_SCROLL_SENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = ps.executeQuery();
+
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            int colnum = rsmd.getColumnCount();
+
             
-           ResultSetMetaData rsmd = rs.getMetaData();
-  
-            int colnum=rsmd.getColumnCount();
-        
-          
-            
-            
-         /*   Column = new String[colnum];
-            for(int i=1;i<=colnum;i++){
-               Column[i-1]=rsmd.getColumnClassName(i);
-                }
-            rs.last();
-            
-            int rows=rs.getRow();
-            rs.beforeFirst();
-            
-            String[][] data = new String[rows][colnum];
-            
-            int count=0; */
             String Row[];
             Row = new String[colnum];
-            while(rs.next()){
-                for(int i=1;i<=colnum;i++){
-                    Row[i-1]=rs.getString(i);
-                    }
-                 model.addRow(Row);
+            while (rs.next()) {
+                for (int i = 1; i <= colnum; i++) {
+                    Row[i - 1] = rs.getString(i);
+                }
+                model.addRow(Row);
             }
-   
-                    //count++;
-               
-            
-           Con.close();
-        }catch(Exception e){System.out.println(e);
-    }
-    }//GEN-LAST:event_ALLActionPerformed
+
+           
+
+            Con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_ResetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -481,9 +451,9 @@ public class ViewBook extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton ALL;
     private javax.swing.JRadioButton AuthorRadio;
     private javax.swing.JRadioButton NameRadio;
+    private javax.swing.JButton Reset;
     private javax.swing.JButton Search;
     private javax.swing.JTextField SearchField;
     private javax.swing.ButtonGroup buttonGroup3;

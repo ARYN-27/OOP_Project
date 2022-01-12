@@ -120,7 +120,7 @@
                           <Component id="NameRadio" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                           <Component id="AuthorRadio" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
                           <Component id="Reset" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>

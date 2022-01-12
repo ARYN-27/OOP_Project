@@ -10,6 +10,7 @@ package library;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JFrame;
 
 /**
@@ -366,13 +367,9 @@ public class LibrarianSuccess extends javax.swing.JFrame {
        
         /* Set the Nimbus look and feel */
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                 
-                ThisLogined = new LibrarianSuccess();
-                ThisLogined.setVisible(true);
-                
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            ThisLogined = new LibrarianSuccess();
+            ThisLogined.setVisible(true);
         });
                  String User=args[0];
         String Pass=args[1];
@@ -393,7 +390,7 @@ public class LibrarianSuccess extends javax.swing.JFrame {
             Con.close();
         
        
-         }catch(Exception f){System.out.println(f);}
+         }catch(SQLException f){System.out.println(f);}
         
     }
     

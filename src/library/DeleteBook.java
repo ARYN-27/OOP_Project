@@ -12,9 +12,7 @@ import javax.swing.JOptionPane;
 
 public class DeleteBook extends javax.swing.JFrame {
 
-    /**
-     * Creates new form IssueBookForm
-     */
+    
     public DeleteBook() {
         initComponents();
     }
@@ -125,7 +123,7 @@ public class DeleteBook extends javax.swing.JFrame {
         {
            
              int BookIDV = Integer.parseInt(BookID.getText());
-             if(TransBookDao.CheckIssuedBook(BookIDV))
+             if(TransBookDBConn.CheckIssuedBook(BookIDV))
                  JOptionPane.showMessageDialog(DeleteBook.this, "Book is Issued","Error!", JOptionPane.ERROR_MESSAGE);     
              else
              {

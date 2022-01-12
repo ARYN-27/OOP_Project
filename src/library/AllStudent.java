@@ -20,10 +20,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import library.DB;
 
-/**
- *
- * @author bikash
- */
+
 public class AllStudent extends javax.swing.JFrame {
 
     /**
@@ -187,7 +184,7 @@ public class AllStudent extends javax.swing.JFrame {
                         .addComponent(NameRadio)
                         .addGap(42, 42, 42)
                         .addComponent(AuthorRadio)
-                        .addGap(165, 165, 165)
+                        .addGap(153, 153, 153)
                         .addComponent(Reset)))
                 .addGap(549, 549, 549))
         );
@@ -262,20 +259,7 @@ public class AllStudent extends javax.swing.JFrame {
 
             int colnum = rsmd.getColumnCount();
 
-            /*
-             * Column = new String[colnum];
-             * for(int i=1;i<=colnum;i++){
-             * Column[i-1]=rsmd.getColumnClassName(i);
-             * }
-             * rs.last();
-             * 
-             * int rows=rs.getRow();
-             * rs.beforeFirst();
-             * 
-             * String[][] data = new String[rows][colnum];
-             * 
-             * int count=0;
-             */
+            
             String Row[];
             Row = new String[colnum];
             while (rs.next()) {
@@ -316,8 +300,7 @@ public class AllStudent extends javax.swing.JFrame {
         while (model.getRowCount() > 0)
             model.removeRow(model.getRowCount() - 1);
         if (NameRadio.isSelected()) {
-            // String Data[][]=null;
-            // String Column[]=null;
+            
             String Search = "%" + SearchField.getText() + "%";
             try (Connection Con = DB.getConnection()) {
                 PreparedStatement ps = Con.prepareStatement("select * from Users where UserName like ?",
@@ -354,7 +337,7 @@ public class AllStudent extends javax.swing.JFrame {
 
                 }
 
-                // count++;
+                
 
                 Con.close();
             } catch (Exception e) {
@@ -364,8 +347,7 @@ public class AllStudent extends javax.swing.JFrame {
 
         else if (AuthorRadio.isSelected()) {
 
-            // String Data[][]=null;
-            // String Column[]=null;
+            
             String Search = "%" + SearchField.getText() + "%";
             try (Connection Con = DB.getConnection()) {
                 PreparedStatement ps = Con.prepareStatement("select * from Users where Email like ?",
@@ -377,7 +359,7 @@ public class AllStudent extends javax.swing.JFrame {
 
                 int colnum = rsmd.getColumnCount();
 
-                // code here
+                
                 String Row[];
                 Row = new String[colnum];
                 while (rs.next()) {
@@ -402,7 +384,7 @@ public class AllStudent extends javax.swing.JFrame {
 
                 }
 
-                // count++;
+                
 
                 Con.close();
             } catch (Exception e) {
@@ -416,20 +398,7 @@ public class AllStudent extends javax.swing.JFrame {
                     JOptionPane.ERROR_MESSAGE);
         }
 
-        /*
-         * Column = new String[colnum];
-         * for(int i=1;i<=colnum;i++){
-         * Column[i-1]=rsmd.getColumnClassName(i);
-         * }
-         * rs.last();
-         * 
-         * int rows=rs.getRow();
-         * rs.beforeFirst();
-         * 
-         * String[][] data = new String[rows][colnum];
-         * 
-         * int count=0;
-         */
+        
 
     }// GEN-LAST:event_SearchActionPerformed
 

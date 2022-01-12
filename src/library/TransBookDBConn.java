@@ -3,19 +3,19 @@ package library;
 
 
 import java.sql.*;
-import javax.swing.JTextField;
-public class TransBookDao {
+//import javax.swing.JTextField;
+public class TransBookDBConn {
 	
 public static boolean checkBook(String bookcallno){
 	boolean status=false;
 	try{
-		Connection con=DB.getConnection();
-		PreparedStatement ps=con.prepareStatement("select * from Books where BookID=?");
-		ps.setString(1,bookcallno);
+            try (Connection con = DB.getConnection()) {
+                PreparedStatement ps=con.prepareStatement("select * from Books where BookID=?");
+                ps.setString(1,bookcallno);
                 ResultSet rs=ps.executeQuery();
-		status=rs.next();
-		con.close();
-	}catch(Exception e){System.out.println(e);}
+                status=rs.next();
+            }
+	}catch(SQLException e){System.out.println(e);}
 	return status;
 }
 
@@ -84,7 +84,7 @@ public static int IssueBook(int BookID, int UserID, String IDate, String RDate)
         ps.setString(4,RDate);
         status =ps.executeUpdate();
         con.close();
-}catch(Exception e){System.out.println(e);}
+}catch(SQLException e){System.out.println(e);}
     return status;
 }
 
@@ -94,13 +94,13 @@ public static int IssueBook(int BookID, int UserID, String IDate, String RDate)
     int status =0;
     try{
         
-        Connection con =DB.getConnection();
-        PreparedStatement ps= con.prepareStatement("delete from IssuedBook where BookID=? and UserID=?");
-        ps.setInt(1,BookID);
-        ps.setInt(2, UserID);
-        status =ps.executeUpdate();
-        con.close();
-}catch(Exception e){System.out.println(e);}
+        try (Connection con = DB.getConnection()) {
+            PreparedStatement ps= con.prepareStatement("delete from IssuedBook where BookID=? and UserID=?");
+            ps.setInt(1,BookID);
+            ps.setInt(2, UserID);
+            status =ps.executeUpdate();
+        }
+}catch(SQLException e){System.out.println(e);}
     return status;
 }
 

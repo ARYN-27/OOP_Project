@@ -250,14 +250,14 @@ public class IssueBookForm extends javax.swing.JFrame {
         
      
         
-        if(TransBookDao.BookValidate(BookID.getText()) && TransBookDao.UserValidate(UserID.getText()))
+        if(TransBookDBConn.BookValidate(BookID.getText()) && TransBookDBConn.UserValidate(UserID.getText()))
         {
           
-            if(TransBookDao.Check(UserIDV)==0)
+            if(TransBookDBConn.Check(UserIDV)==0)
                JOptionPane.showMessageDialog(IssueBookForm.this, "User has already Issued Maximum No of Books","Issue Error!", JOptionPane.ERROR_MESSAGE); 
            else
             {
-            if(TransBookDao.IssueBook(BookIDV, UserIDV, IFDate, RFDate)!=0)
+            if(TransBookDBConn.IssueBook(BookIDV, UserIDV, IFDate, RFDate)!=0)
             {
               
                 JOptionPane.showMessageDialog(IssueBookForm.this, "The Book  is Issued!","Book Issued!", JOptionPane.ERROR_MESSAGE);
@@ -271,10 +271,10 @@ public class IssueBookForm extends javax.swing.JFrame {
             
         }
         else
-        {    if(TransBookDao.UserValidate(UserID.getText()))
+        {    if(TransBookDBConn.UserValidate(UserID.getText()))
                     JOptionPane.showMessageDialog(IssueBookForm.this, "The Book  is NOT available in Library Database!","Issuing Book Error!", JOptionPane.ERROR_MESSAGE);
              else
-                if(TransBookDao.BookValidate(BookID.getText()))
+                if(TransBookDBConn.BookValidate(BookID.getText()))
                     JOptionPane.showMessageDialog(IssueBookForm.this, "The User is NOT available in Library Database!","Issuing Book Error!", JOptionPane.ERROR_MESSAGE);
                  else
             JOptionPane.showMessageDialog(IssueBookForm.this, "The Book  and User are NOT available in Library Database!","Issuing Book Error!", JOptionPane.ERROR_MESSAGE);
