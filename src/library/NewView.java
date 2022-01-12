@@ -36,7 +36,7 @@ public class NewView extends javax.swing.JFrame {
 
         try (Connection Con = DB.getConnection()) {
             PreparedStatement ps = Con.prepareStatement(
-                    "select IssuedBook.BookID,IssuedBook.UserID,Books.BookName , IssuedBook.IssueDate, IssuedBook.ReturnDate from Books,IssuedBook where Books.BookID=IssuedBook.BookID;",
+                    "select IssuedBook.BookID,IssuedBook.MatricsNo,Books.BookName , IssuedBook.IssueDate, IssuedBook.ReturnDate from Books,IssuedBook where Books.BookID=IssuedBook.BookID;",
                     ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = ps.executeQuery();
 
@@ -249,7 +249,7 @@ public class NewView extends javax.swing.JFrame {
             String Search = "%" + SearchField.getText() + "%";
             try (Connection Con = DB.getConnection()) {
                 PreparedStatement ps = Con.prepareStatement(
-                        "select IssuedBook.BookID,IssuedBook.UserID,Books.BookName , IssuedBook.IssueDate, IssuedBook.ReturnDate from Books,IssuedBook where Books.BookID=IssuedBook.BookID and Books.BookName like ?",
+                        "select IssuedBook.BookID,IssuedBook.MatricsNo,Books.BookName , IssuedBook.IssueDate, IssuedBook.ReturnDate from Books,IssuedBook where Books.BookID=IssuedBook.BookID and Books.BookName like ?",
                         ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
                 ps.setString(1, Search);
                 ResultSet rs = ps.executeQuery();
@@ -295,7 +295,7 @@ public class NewView extends javax.swing.JFrame {
             BookIDV = Integer.parseInt(Search);
             try (Connection Con = DB.getConnection()) {
                 PreparedStatement ps = Con.prepareStatement(
-                        "select IssuedBook.BookID,IssuedBook.UserID,Books.BookName , IssuedBook.IssueDate, IssuedBook.ReturnDate from Books,IssuedBook where Books.BookID=IssuedBook.BookID and IssuedBook.BookID=?",
+                        "select IssuedBook.BookID,IssuedBook.MatricsNo,Books.BookName , IssuedBook.IssueDate, IssuedBook.ReturnDate from Books,IssuedBook where Books.BookID=IssuedBook.BookID and IssuedBook.BookID=?",
                         ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
                 ps.setInt(1, BookIDV);
                 ResultSet rs = ps.executeQuery();
@@ -335,13 +335,13 @@ public class NewView extends javax.swing.JFrame {
         } else if (UserIDRadio.isSelected()) {
 
             String Search = SearchField.getText();
-            int UserIDV;
-            UserIDV = Integer.parseInt(Search);
+            String MatricsNoIDV;
+            MatricsNoIDV = Search;
             try (Connection Con = DB.getConnection()) {
                 PreparedStatement ps = Con.prepareStatement(
-                        "select IssuedBook.BookID,IssuedBook.UserID,Books.BookName , IssuedBook.IssueDate, IssuedBook.ReturnDate from Books,IssuedBook where Books.BookID=IssuedBook.BookID and IssuedBook.UserID=?",
+                        "select IssuedBook.BookID,IssuedBook.MatricsNo,Books.BookName , IssuedBook.IssueDate, IssuedBook.ReturnDate from Books,IssuedBook where Books.BookID=IssuedBook.BookID and IssuedBook.MatricsNo=?",
                         ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-                ps.setInt(1, UserIDV);
+                ps.setString(1, MatricsNoIDV);
                 ResultSet rs = ps.executeQuery();
 
                 ResultSetMetaData rsmd = rs.getMetaData();
@@ -415,7 +415,7 @@ public class NewView extends javax.swing.JFrame {
             model.removeRow(model.getRowCount() - 1);
         try (Connection Con = DB.getConnection()) {
             PreparedStatement ps = Con.prepareStatement(
-                    "select IssuedBook.BookID,IssuedBook.UserID,Books.BookName , IssuedBook.IssueDate, IssuedBook.ReturnDate from Books,IssuedBook where Books.BookID=IssuedBook.BookID;",
+                    "select IssuedBook.BookID,IssuedBook.MatricsNo,Books.BookName , IssuedBook.IssueDate, IssuedBook.ReturnDate from Books,IssuedBook where Books.BookID=IssuedBook.BookID;",
                     ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = ps.executeQuery();
 
@@ -460,26 +460,21 @@ public class NewView extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(NewView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         // </editor-fold>
         // </editor-fold>
+        
+        // </editor-fold>
+        // </editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new NewView().setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(NewView.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                new NewView().setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(NewView.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }
