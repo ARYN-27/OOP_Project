@@ -20,18 +20,17 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 //import library.DB;
 
-
 public class AllStudent extends javax.swing.JFrame {
 
-    
     public AllStudent() throws SQLException {
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         initComponents();
         DefaultTableModel model;
         model = (DefaultTableModel) jTable1.getModel();
-        
+
         try (Connection Con = DB.getConnection()) {
-            PreparedStatement ps = Con.prepareStatement("select MatricsNo, UserName, Email, RegDate from Users", ResultSet.TYPE_SCROLL_SENSITIVE,
+            PreparedStatement ps = Con.prepareStatement("select MatricsNo, UserName, Email, RegDate from Users",
+                    ResultSet.TYPE_SCROLL_SENSITIVE,
                     ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = ps.executeQuery();
 
@@ -39,7 +38,6 @@ public class AllStudent extends javax.swing.JFrame {
 
             int colnum = rsmd.getColumnCount();
 
-            
             String Row[];
             Row = new String[colnum];
             while (rs.next()) {
@@ -49,7 +47,6 @@ public class AllStudent extends javax.swing.JFrame {
                 model.addRow(Row);
             }
 
-        
             Con.close();
         } catch (Exception e) {
             System.out.println(e);
@@ -63,7 +60,8 @@ public class AllStudent extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         buttonGroup3 = new javax.swing.ButtonGroup();
@@ -81,25 +79,25 @@ public class AllStudent extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-            },
-            new String [] {
-                "User ID", "UserPass", "RegDate", "UserName", "Email"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                new Object[][] {
+                },
+                new String[] {
+                        "User ID", "UserPass", "RegDate", "UserName", "Email"
+                }) {
+            Class[] types = new Class[] {
+                    java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                    java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+            boolean[] canEdit = new boolean[] {
+                    false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+                return types[columnIndex];
             }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -152,75 +150,81 @@ public class AllStudent extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(466, 466, 466)
-                        .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Search))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(557, 557, 557)
-                        .addComponent(NameRadio)
-                        .addGap(42, 42, 42)
-                        .addComponent(AuthorRadio)
-                        .addGap(111, 111, 111)
-                        .addComponent(Reset)))
-                .addGap(549, 549, 549))
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(466, 466, 466)
+                                                .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 352,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(Search))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(557, 557, 557)
+                                                .addComponent(NameRadio)
+                                                .addGap(42, 42, 42)
+                                                .addComponent(AuthorRadio)
+                                                .addGap(111, 111, 111)
+                                                .addComponent(Reset)))
+                                .addGap(549, 549, 549)));
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NameRadio)
-                    .addComponent(AuthorRadio)
-                    .addComponent(Reset))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Search))
-                .addContainerGap())
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(NameRadio)
+                                        .addComponent(AuthorRadio)
+                                        .addComponent(Reset))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19,
+                                        Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Search))
+                                .addContainerGap()));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(152, 152, 152))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1464, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(698, 698, 698)
-                        .addComponent(jButton1)))
-                .addContainerGap(149, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel1))
+                                .addGap(152, 152, 152))
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(103, 103, 103)
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        1464, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(698, 698, 698)
+                                                .addComponent(jButton1)))
+                                .addContainerGap(149, Short.MAX_VALUE)));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 311,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton1)
+                                .addContainerGap(40, Short.MAX_VALUE)));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
+    private void ResetActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ResetActionPerformed
         // TODO add your handling code here:
         NameRadio.setSelected(false);
         AuthorRadio.setSelected(false);
@@ -229,9 +233,10 @@ public class AllStudent extends javax.swing.JFrame {
         model = (DefaultTableModel) jTable1.getModel();
         while (model.getRowCount() > 0)
             model.removeRow(model.getRowCount() - 1);
-        
+
         try (Connection Con = DB.getConnection()) {
-            PreparedStatement ps = Con.prepareStatement("select MatricsNo, UserName, Email, RegDate from Users", ResultSet.TYPE_SCROLL_SENSITIVE,
+            PreparedStatement ps = Con.prepareStatement("select MatricsNo, UserName, Email, RegDate from Users",
+                    ResultSet.TYPE_SCROLL_SENSITIVE,
                     ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = ps.executeQuery();
 
@@ -239,7 +244,6 @@ public class AllStudent extends javax.swing.JFrame {
 
             int colnum = rsmd.getColumnCount();
 
-            
             String Row[];
             Row = new String[colnum];
             while (rs.next()) {
@@ -249,12 +253,11 @@ public class AllStudent extends javax.swing.JFrame {
                 model.addRow(Row);
             }
 
-            
             Con.close();
         } catch (Exception e) {
             System.out.println(e);
         }
-    }//GEN-LAST:event_ResetActionPerformed
+    }// GEN-LAST:event_ResetActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code hereset
@@ -279,10 +282,11 @@ public class AllStudent extends javax.swing.JFrame {
         while (model.getRowCount() > 0)
             model.removeRow(model.getRowCount() - 1);
         if (NameRadio.isSelected()) {
-            
+
             String Search = "%" + SearchField.getText() + "%";
             try (Connection Con = DB.getConnection()) {
-                PreparedStatement ps = Con.prepareStatement("select MatricsNo, UserName, Email, RegDate from Users where UserName like ?",
+                PreparedStatement ps = Con.prepareStatement(
+                        "select MatricsNo, UserName, Email, RegDate from Users where UserName like ?",
                         ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
                 ps.setString(1, Search);
                 ResultSet rs = ps.executeQuery();
@@ -316,8 +320,6 @@ public class AllStudent extends javax.swing.JFrame {
 
                 }
 
-                
-
                 Con.close();
             } catch (Exception e) {
                 System.out.println(e);
@@ -326,10 +328,10 @@ public class AllStudent extends javax.swing.JFrame {
 
         else if (AuthorRadio.isSelected()) {
 
-            
             String Search = "%" + SearchField.getText() + "%";
             try (Connection Con = DB.getConnection()) {
-                PreparedStatement ps = Con.prepareStatement("select MatricsNo, UserName, Email, RegDate from Users where Email like ?",
+                PreparedStatement ps = Con.prepareStatement(
+                        "select MatricsNo, UserName, Email, RegDate from Users where Email like ?",
                         ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
                 ps.setString(1, Search);
                 ResultSet rs = ps.executeQuery();
@@ -338,7 +340,6 @@ public class AllStudent extends javax.swing.JFrame {
 
                 int colnum = rsmd.getColumnCount();
 
-                
                 String Row[];
                 Row = new String[colnum];
                 while (rs.next()) {
@@ -363,8 +364,6 @@ public class AllStudent extends javax.swing.JFrame {
 
                 }
 
-                
-
                 Con.close();
             } catch (Exception e) {
                 System.out.println(e);
@@ -377,8 +376,6 @@ public class AllStudent extends javax.swing.JFrame {
                     JOptionPane.ERROR_MESSAGE);
         }
 
-        
-
     }// GEN-LAST:event_SearchActionPerformed
 
     private void AuthorRadioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_AuthorRadioActionPerformed
@@ -386,8 +383,6 @@ public class AllStudent extends javax.swing.JFrame {
         NameRadio.setSelected(false);
         Reset.setSelected(false);
     }// GEN-LAST:event_AuthorRadioActionPerformed
-
-    
 
     /**
      * @param args the command line arguments

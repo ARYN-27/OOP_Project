@@ -8,7 +8,7 @@ public class TransBookDBConn {
     public static boolean checkBook(String bookcallno) {
         boolean status = false;
         try {
-            try ( Connection con = DB.getConnection()) {
+            try (Connection con = DB.getConnection()) {
                 PreparedStatement ps = con.prepareStatement("select * from Books where BookID=?");
                 ps.setString(1, bookcallno);
                 ResultSet rs = ps.executeQuery();
@@ -22,7 +22,7 @@ public class TransBookDBConn {
 
     public static boolean BookValidate(String BookID) {
         boolean status = false;
-        try ( Connection con = DB.getConnection()) {
+        try (Connection con = DB.getConnection()) {
             PreparedStatement ps = con.prepareStatement("select * from Books where BookID = ?");
             ps.setString(1, BookID);
             ResultSet rs = ps.executeQuery();
@@ -36,7 +36,7 @@ public class TransBookDBConn {
 
     public static boolean UserValidate(String MatricsNo) {
         boolean status = false;
-        try ( Connection con = DB.getConnection()) {
+        try (Connection con = DB.getConnection()) {
             PreparedStatement ps = con.prepareStatement("select * from Users where MatricsNo = ?");
             ps.setString(1, MatricsNo);
             ResultSet rs = ps.executeQuery();
@@ -52,7 +52,7 @@ public class TransBookDBConn {
         int status = 0;
         int quantity = 0, issued = 0;
         try {
-            try ( Connection con = DB.getConnection()) {
+            try (Connection con = DB.getConnection()) {
                 PreparedStatement ps = con.prepareStatement("select quantity,issued from books where callno=?");
                 ps.setString(1, bookcallno);
                 ResultSet rs = ps.executeQuery();
@@ -80,7 +80,7 @@ public class TransBookDBConn {
         int status = 0;
         try {
 
-            try ( Connection con = DB.getConnection()) {
+            try (Connection con = DB.getConnection()) {
                 PreparedStatement ps = con.prepareStatement("insert into IssuedBook values(?,?,?,?)");
                 ps.setInt(1, BookID);
                 ps.setString(2, MatricsNo);
@@ -98,7 +98,7 @@ public class TransBookDBConn {
         int status = 0;
         try {
 
-            try ( Connection con = DB.getConnection()) {
+            try (Connection con = DB.getConnection()) {
                 PreparedStatement ps = con.prepareStatement("delete from IssuedBook where BookID=? and MatricsNo=?");
                 ps.setInt(1, BookID);
                 ps.setString(2, MatricsNo);
@@ -112,7 +112,7 @@ public class TransBookDBConn {
 
     public static boolean CheckIssuedBook(int BookID) {
         boolean status = false;
-        try ( Connection con = DB.getConnection()) {
+        try (Connection con = DB.getConnection()) {
             PreparedStatement ps = con.prepareStatement("select * from IssuedBook  where BookID=?");
             ps.setInt(1, BookID);
             ResultSet rs = ps.executeQuery();
@@ -127,7 +127,7 @@ public class TransBookDBConn {
     public static int Check(String MatricsNo) {
         boolean status = false;
         int num = 0;
-        try ( Connection con = DB.getConnection()) {
+        try (Connection con = DB.getConnection()) {
             PreparedStatement ps = con.prepareStatement("select * from Book_Count MatricsNo=?");
             ps.setString(2, MatricsNo);
             ResultSet rs = ps.executeQuery();
@@ -144,12 +144,19 @@ public class TransBookDBConn {
         }
     }
 
-    /*static int Check(String MatricsNoIDV) {
-    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-    static int IssueBook(int BookIDV, String MatricsNoIDV, String IFDate, String RFDate) {
-    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }*/
+    /*
+     * static int Check(String MatricsNoIDV) {
+     * throw new UnsupportedOperationException("Not supported yet."); // Generated
+     * from
+     * nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+     * }
+     * 
+     * static int IssueBook(int BookIDV, String MatricsNoIDV, String IFDate, String
+     * RFDate) {
+     * throw new UnsupportedOperationException("Not supported yet."); // Generated
+     * from
+     * nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+     * }
+     */
 
 }
