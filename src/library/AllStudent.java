@@ -180,11 +180,11 @@ public class AllStudent extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Search))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(524, 524, 524)
+                        .addGap(557, 557, 557)
                         .addComponent(NameRadio)
                         .addGap(42, 42, 42)
                         .addComponent(AuthorRadio)
-                        .addGap(153, 153, 153)
+                        .addGap(111, 111, 111)
                         .addComponent(Reset)))
                 .addGap(549, 549, 549))
         );

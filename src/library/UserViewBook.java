@@ -87,7 +87,6 @@ public class UserViewBook extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         NameRadio = new javax.swing.JRadioButton();
         AuthorRadio = new javax.swing.JRadioButton();
-        ALL = new javax.swing.JRadioButton();
         NotIssued = new javax.swing.JRadioButton();
         SearchField = new javax.swing.JTextField();
         Search = new javax.swing.JButton();
@@ -119,9 +118,10 @@ public class UserViewBook extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
-        jLabel1.setText("Books");
+        jLabel1.setFont(new java.awt.Font("Montserrat Black", 0, 36)); // NOI18N
+        jLabel1.setText("BOOKS");
 
+        jButton1.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jButton1.setText("Close");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +129,7 @@ public class UserViewBook extends javax.swing.JFrame {
             }
         });
 
+        NameRadio.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         NameRadio.setText("Name");
         NameRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +137,7 @@ public class UserViewBook extends javax.swing.JFrame {
             }
         });
 
+        AuthorRadio.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         AuthorRadio.setText("Author");
         AuthorRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,13 +145,7 @@ public class UserViewBook extends javax.swing.JFrame {
             }
         });
 
-        ALL.setText("ALL");
-        ALL.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ALLActionPerformed(evt);
-            }
-        });
-
+        NotIssued.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         NotIssued.setText("NOT ISSUED");
         NotIssued.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,6 +153,7 @@ public class UserViewBook extends javax.swing.JFrame {
             }
         });
 
+        Search.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         Search.setText("Search");
         Search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,6 +161,7 @@ public class UserViewBook extends javax.swing.JFrame {
             }
         });
 
+        ShowALL.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         ShowALL.setText("Show All");
         ShowALL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,26 +182,23 @@ public class UserViewBook extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1464, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(452, 452, 452)
-                        .addComponent(NameRadio)
-                        .addGap(30, 30, 30)
-                        .addComponent(AuthorRadio)
-                        .addGap(308, 308, 308)
-                        .addComponent(ALL)
-                        .addGap(40, 40, 40)
-                        .addComponent(NotIssued))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(725, 725, 725)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(452, 452, 452)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(NameRadio)
+                                .addGap(69, 69, 69)
+                                .addComponent(AuthorRadio)
+                                .addGap(82, 82, 82)
+                                .addComponent(NotIssued))
+                            .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ShowALL))))
                 .addContainerGap(29, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(ShowALL)
-                .addGap(122, 122, 122)
-                .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(Search)
-                .addGap(288, 288, 288))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,14 +209,13 @@ public class UserViewBook extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NameRadio)
                     .addComponent(AuthorRadio)
-                    .addComponent(ALL)
-                    .addComponent(NotIssued))
-                .addGap(16, 16, 16)
+                    .addComponent(NotIssued)
+                    .addComponent(ShowALL, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Search)
-                    .addComponent(ShowALL))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(Search, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(21, 21, 21)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
@@ -241,12 +235,12 @@ public class UserViewBook extends javax.swing.JFrame {
         if("".equals(SearchField.getText()))
       JOptionPane.showMessageDialog(UserViewBook.this, "Search Filed is Empty","Search Error!", JOptionPane.ERROR_MESSAGE);
 
-        if(!ALL.isSelected())
+        if(!ShowALL.isSelected())
             if(!NotIssued.isSelected())
-            ALL.setEnabled(true);
+            ShowALL.setEnabled(true);
         
         int flag=0;
-        if(ALL.isSelected())
+        if(ShowALL.isSelected())
             flag=0;
         if(NotIssued.isSelected())
             flag=1;
@@ -412,15 +406,9 @@ public class UserViewBook extends javax.swing.JFrame {
         AuthorRadio.setSelected(false);
     }//GEN-LAST:event_NameRadioActionPerformed
 
-    private void ALLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALLActionPerformed
-        // TODO add your handling code here:
-        NotIssued.setSelected(false);
-      
-    }//GEN-LAST:event_ALLActionPerformed
-
     private void NotIssuedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotIssuedActionPerformed
         // TODO add your handling code here:
-        ALL.setSelected(false);
+        ShowALL.setSelected(false);
         
     }//GEN-LAST:event_NotIssuedActionPerformed
 
@@ -434,14 +422,14 @@ public class UserViewBook extends javax.swing.JFrame {
             model.removeRow(model.getRowCount()-1);
          
          
-         if(!ALL.isSelected()&&!NotIssued.isSelected())
+         if(!ShowALL.isSelected()&&!NotIssued.isSelected())
          {
-             ALL.setSelected(true);
+             ShowALL.setSelected(true);
          }
          
          
          int flag=0;
-         if(ALL.isSelected())
+         if(ShowALL.isSelected())
              flag=0;
          if(NotIssued.isSelected())
              flag=1;
@@ -533,7 +521,6 @@ public class UserViewBook extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton ALL;
     private javax.swing.JRadioButton AuthorRadio;
     private javax.swing.JRadioButton NameRadio;
     private javax.swing.JRadioButton NotIssued;

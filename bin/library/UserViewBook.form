@@ -34,30 +34,29 @@
                       <Component id="jScrollPane1" min="-2" pref="1464" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="452" max="-2" attributes="0"/>
-                      <Component id="NameRadio" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="AuthorRadio" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="308" max="-2" attributes="0"/>
-                      <Component id="ALL" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="NotIssued" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="725" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="452" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="NameRadio" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                              <Component id="AuthorRadio" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="NotIssued" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="SearchField" min="-2" pref="426" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="Search" min="-2" pref="79" max="-2" attributes="0"/>
+                          <Component id="ShowALL" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <EmptySpace pref="29" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="ShowALL" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-              <Component id="SearchField" min="-2" pref="230" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-              <Component id="Search" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="288" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -70,16 +69,15 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="NameRadio" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="AuthorRadio" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ALL" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="NotIssued" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ShowALL" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="SearchField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Search" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ShowALL" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Search" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
@@ -111,13 +109,16 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Ubuntu" size="24" style="0"/>
+          <Font name="Montserrat Black" size="36" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Books"/>
+        <Property name="text" type="java.lang.String" value="BOOKS"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Montserrat" size="12" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Close"/>
       </Properties>
       <Events>
@@ -126,6 +127,9 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="NameRadio">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Montserrat" size="12" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Name"/>
       </Properties>
       <Events>
@@ -134,22 +138,20 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="AuthorRadio">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Montserrat" size="12" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Author"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AuthorRadioActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="ALL">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ALL"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ALLActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JRadioButton" name="NotIssued">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Montserrat" size="12" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="NOT ISSUED"/>
       </Properties>
       <Events>
@@ -160,6 +162,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="Search">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Montserrat" size="12" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
       <Events>
@@ -168,6 +173,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="ShowALL">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Montserrat" size="12" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Show All"/>
       </Properties>
       <Events>

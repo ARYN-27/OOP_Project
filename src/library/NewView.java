@@ -76,10 +76,10 @@ public class NewView extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         NameRadio = new javax.swing.JRadioButton();
         BookIDRadio = new javax.swing.JRadioButton();
-        ALL = new javax.swing.JRadioButton();
         SearchField = new javax.swing.JTextField();
         Search = new javax.swing.JButton();
         UserIDRadio = new javax.swing.JRadioButton();
+        Reset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,9 +108,10 @@ public class NewView extends javax.swing.JFrame {
         jTable1.setRowHeight(20);
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Montserrat Black", 0, 36)); // NOI18N
         jLabel1.setText("Issued Books");
 
+        jButton1.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jButton1.setText("Close");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +119,7 @@ public class NewView extends javax.swing.JFrame {
             }
         });
 
+        NameRadio.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         NameRadio.setText("Name");
         NameRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,17 +127,11 @@ public class NewView extends javax.swing.JFrame {
             }
         });
 
+        BookIDRadio.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         BookIDRadio.setText("BookID");
         BookIDRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BookIDRadioActionPerformed(evt);
-            }
-        });
-
-        ALL.setText("ALL");
-        ALL.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ALLActionPerformed(evt);
             }
         });
 
@@ -145,6 +141,7 @@ public class NewView extends javax.swing.JFrame {
             }
         });
 
+        Search.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         Search.setText("Search");
         Search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,10 +149,19 @@ public class NewView extends javax.swing.JFrame {
             }
         });
 
+        UserIDRadio.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         UserIDRadio.setText("UserID");
         UserIDRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UserIDRadioActionPerformed(evt);
+            }
+        });
+
+        Reset.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
+        Reset.setText("Reset");
+        Reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResetActionPerformed(evt);
             }
         });
 
@@ -169,43 +175,44 @@ public class NewView extends javax.swing.JFrame {
                         .addGap(698, 698, 698)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(642, 642, 642)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1575, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(365, 365, 365)
-                        .addComponent(NameRadio)
-                        .addGap(47, 47, 47)
-                        .addComponent(BookIDRadio)
-                        .addGap(43, 43, 43)
-                        .addComponent(UserIDRadio)
-                        .addGap(247, 247, 247)
-                        .addComponent(ALL)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(SearchField)
+                                .addGap(18, 18, 18)
+                                .addComponent(Search))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(156, 156, 156)
+                                .addComponent(NameRadio)
+                                .addGap(77, 77, 77)
+                                .addComponent(BookIDRadio)
+                                .addGap(58, 58, 58)
+                                .addComponent(UserIDRadio)
+                                .addGap(34, 34, 34)
+                                .addComponent(Reset))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(557, 557, 557)
+                        .addComponent(jLabel1)))
                 .addContainerGap(37, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addComponent(Search)
-                .addGap(464, 464, 464))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel1)
-                .addGap(21, 21, 21)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NameRadio)
                     .addComponent(BookIDRadio)
-                    .addComponent(ALL)
-                    .addComponent(UserIDRadio))
+                    .addComponent(UserIDRadio)
+                    .addComponent(Reset)
+                    .addComponent(NameRadio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Search))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Search)
+                    .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -400,20 +407,26 @@ public class NewView extends javax.swing.JFrame {
     private void BookIDRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookIDRadioActionPerformed
         // TODO add your handling code here:
         NameRadio.setSelected(false);
-        ALL.setSelected(false);
+        Reset.setSelected(false);
         UserIDRadio.setSelected(false);
     }//GEN-LAST:event_BookIDRadioActionPerformed
 
     private void NameRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameRadioActionPerformed
         // TODO add your handling code here:
         BookIDRadio.setSelected(false);
-        ALL.setSelected(false);
+        Reset.setSelected(false);
         UserIDRadio.setSelected(false);
         
     }//GEN-LAST:event_NameRadioActionPerformed
 
-    private void ALLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALLActionPerformed
+    private void UserIDRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserIDRadioActionPerformed
         // TODO add your handling code here:
+        Reset.setSelected(false);
+        NameRadio.setSelected(false);
+        BookIDRadio.setSelected(false);    
+    }//GEN-LAST:event_UserIDRadioActionPerformed
+
+    private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
         SearchField.setText("");
         DefaultTableModel model;
         model = (DefaultTableModel) jTable1.getModel();
@@ -427,21 +440,7 @@ public class NewView extends javax.swing.JFrame {
   
             int colnum=rsmd.getColumnCount();
         
-            
-            
-         /*   Column = new String[colnum];
-            for(int i=1;i<=colnum;i++){
-               Column[i-1]=rsmd.getColumnClassName(i);
-                }
-            rs.last();
-            
-            int rows=rs.getRow();
-            rs.beforeFirst();
-            
-            String[][] data = new String[rows][colnum];
-            
-            int count=0; */
-            String Row[];
+                        String Row[];
             Row = new String[colnum];
             while(rs.next()){
                 for(int i=1;i<=colnum;i++){
@@ -456,14 +455,7 @@ public class NewView extends javax.swing.JFrame {
            Con.close();
         }catch(Exception e){System.out.println(e);
         }
-    }//GEN-LAST:event_ALLActionPerformed
-
-    private void UserIDRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserIDRadioActionPerformed
-        // TODO add your handling code here:
-        ALL.setSelected(false);
-        NameRadio.setSelected(false);
-        BookIDRadio.setSelected(false);    
-    }//GEN-LAST:event_UserIDRadioActionPerformed
+    }//GEN-LAST:event_ResetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -506,9 +498,9 @@ public class NewView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton ALL;
     private javax.swing.JRadioButton BookIDRadio;
     private javax.swing.JRadioButton NameRadio;
+    private javax.swing.JButton Reset;
     private javax.swing.JButton Search;
     private javax.swing.JTextField SearchField;
     private javax.swing.JRadioButton UserIDRadio;

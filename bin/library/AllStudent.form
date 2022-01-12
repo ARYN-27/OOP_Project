@@ -116,11 +116,11 @@
                           <Component id="Search" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="524" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="557" max="-2" attributes="0"/>
                           <Component id="NameRadio" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                           <Component id="AuthorRadio" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
                           <Component id="Reset" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
