@@ -34,8 +34,7 @@ public class NewView extends javax.swing.JFrame {
         initComponents();
         DefaultTableModel model;
         model = (DefaultTableModel) jTable1.getModel();
-       // String Data[][]=null;
-      //  String Column[]=null;
+       
         try(Connection Con = DB.getConnection()) {
             PreparedStatement ps=Con.prepareStatement("select IssuedBook.BookID,IssuedBook.UserID,Books.BookName , IssuedBook.IssueDate, IssuedBook.ReturnDate from Books,IssuedBook where Books.BookID=IssuedBook.BookID;",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
             ResultSet rs= ps.executeQuery();
@@ -52,9 +51,7 @@ public class NewView extends javax.swing.JFrame {
                     }
                  model.addRow(Row);
             }
-   
-                    //count++;
-               
+    
             
            Con.close();
         }catch(Exception e){System.out.println(e);
@@ -242,8 +239,7 @@ public class NewView extends javax.swing.JFrame {
             model.removeRow(model.getRowCount()-1);
         if(NameRadio.isSelected())
         {
-       // String Data[][]=null;
-      //  String Column[]=null;
+       
             String Search = "%"+SearchField.getText()+"%";
         try(Connection Con = DB.getConnection()) {
             PreparedStatement ps=Con.prepareStatement("select IssuedBook.BookID,IssuedBook.UserID,Books.BookName , IssuedBook.IssueDate, IssuedBook.ReturnDate from Books,IssuedBook where Books.BookID=IssuedBook.BookID and Books.BookName like ?",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
@@ -255,8 +251,6 @@ public class NewView extends javax.swing.JFrame {
             int colnum=rsmd.getColumnCount();
             
            
-     
-            //code here
             String Row[];
             Row = new String[colnum];
             while(rs.next()){
@@ -283,18 +277,13 @@ public class NewView extends javax.swing.JFrame {
                 
             }
    
-                    //count++;
-               
-            
            Con.close();
         }catch(Exception e){System.out.println(e);
     } }
         
         else if(BookIDRadio.isSelected())
         {
-            
-       // String Data[][]=null;
-      //  String Column[]=null;
+         
             String Search = SearchField.getText();
             int BookIDV;
         BookIDV = Integer.parseInt(Search);
@@ -307,9 +296,7 @@ public class NewView extends javax.swing.JFrame {
   
             int colnum=rsmd.getColumnCount();
             
-           
-     
-            //code here
+          
             String Row[];
             Row = new String[colnum];
             while(rs.next()){
@@ -336,18 +323,13 @@ public class NewView extends javax.swing.JFrame {
                 
             }
    
-                    //count++;
-               
-            
            Con.close();
         }catch(Exception e){System.out.println(e);
     }
         }
          else if(UserIDRadio.isSelected())
         {
-            
-       // String Data[][]=null;
-      //  String Column[]=null;
+         
             String Search = SearchField.getText();
             int UserIDV;
         UserIDV = Integer.parseInt(Search);
@@ -360,9 +342,6 @@ public class NewView extends javax.swing.JFrame {
   
             int colnum=rsmd.getColumnCount();
             
-           
-     
-            //code here
             String Row[];
             Row = new String[colnum];
             while(rs.next()){
@@ -389,9 +368,6 @@ public class NewView extends javax.swing.JFrame {
                 
             }
    
-                    //count++;
-               
-            
            Con.close();
         }catch(Exception e){System.out.println(e);
     }

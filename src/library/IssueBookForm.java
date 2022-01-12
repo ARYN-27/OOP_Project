@@ -13,9 +13,7 @@ import static library.LibrarianSuccess.ThisLogined;
 
 public class IssueBookForm extends javax.swing.JFrame {
 
-    /**
-     * Creates new form IssueBookForm
-     */
+    
     public IssueBookForm() {
         initComponents();
         int year;
@@ -260,9 +258,6 @@ public class IssueBookForm extends javax.swing.JFrame {
         String RFDate = RYear.getText() + "-"+RMonth.getText()+"-"+RDate.getText();
         System.out.println(IFDate);
         
-        //Date IFDDate = cal.getDate();
-        
-     
         
         if(TransBookDBConn.BookValidate(BookID.getText()) && TransBookDBConn.UserValidate(MatricsNo.getText()))
         {

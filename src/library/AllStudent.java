@@ -5,7 +5,7 @@
  */
 package library;
 
-import java.awt.HeadlessException;
+//import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,26 +15,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+//import javax.swing.JScrollPane;
+//import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import library.DB;
+//import library.DB;
 
 
 public class AllStudent extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ViewBook
-     * 
-     * @throws java.sql.SQLException
-     */
+    
     public AllStudent() throws SQLException {
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         initComponents();
         DefaultTableModel model;
         model = (DefaultTableModel) jTable1.getModel();
-        // String Data[][]=null;
-        // String Column[]=null;
+        
         try (Connection Con = DB.getConnection()) {
             PreparedStatement ps = Con.prepareStatement("select MatricsNo, UserName, Email, RegDate from Users", ResultSet.TYPE_SCROLL_SENSITIVE,
                     ResultSet.CONCUR_UPDATABLE);
@@ -54,8 +49,7 @@ public class AllStudent extends javax.swing.JFrame {
                 model.addRow(Row);
             }
 
-            // count++;
-
+        
             Con.close();
         } catch (Exception e) {
             System.out.println(e);
@@ -235,8 +229,7 @@ public class AllStudent extends javax.swing.JFrame {
         model = (DefaultTableModel) jTable1.getModel();
         while (model.getRowCount() > 0)
             model.removeRow(model.getRowCount() - 1);
-        // String Data[][]=null;
-        // String Column[]=null;
+        
         try (Connection Con = DB.getConnection()) {
             PreparedStatement ps = Con.prepareStatement("select MatricsNo, UserName, Email, RegDate from Users", ResultSet.TYPE_SCROLL_SENSITIVE,
                     ResultSet.CONCUR_UPDATABLE);
@@ -256,8 +249,7 @@ public class AllStudent extends javax.swing.JFrame {
                 model.addRow(Row);
             }
 
-            // count++;
-
+            
             Con.close();
         } catch (Exception e) {
             System.out.println(e);

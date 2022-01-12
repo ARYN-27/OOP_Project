@@ -24,10 +24,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class ViewBook extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ViewBook
-     * @throws java.sql.SQLException
-     */
+    
     public ViewBook() throws SQLException {
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         initComponents();
@@ -52,10 +49,6 @@ public class ViewBook extends javax.swing.JFrame {
                     }
                  model.addRow(Row);
             }
-   
-                    //count++;
-               
-            
            Con.close();
         }catch(Exception e){System.out.println(e);
     }
@@ -260,9 +253,6 @@ public class ViewBook extends javax.swing.JFrame {
   
             int colnum=rsmd.getColumnCount();
             
-           
-     
-            //code here
             String Row[];
             Row = new String[colnum];
             while(rs.next()){
@@ -288,10 +278,6 @@ public class ViewBook extends javax.swing.JFrame {
                 
                 
             }
-   
-                    //count++;
-               
-            
            Con.close();
         }catch(Exception e){System.out.println(e);
     } }
@@ -310,8 +296,6 @@ public class ViewBook extends javax.swing.JFrame {
             int colnum=rsmd.getColumnCount();
             
            
-     
-            //code here
             String Row[];
             Row = new String[colnum];
             while(rs.next()){
@@ -338,9 +322,6 @@ public class ViewBook extends javax.swing.JFrame {
                 
             }
    
-                    //count++;
-               
-            
            Con.close();
         }catch(Exception e){System.out.println(e);
     }
@@ -351,20 +332,7 @@ public class ViewBook extends javax.swing.JFrame {
             
 				JOptionPane.showMessageDialog(ViewBook.this, "Select Name or Author","No Selection!", JOptionPane.ERROR_MESSAGE);
         }
-                
-                  /*   Column = new String[colnum];
-            for(int i=1;i<=colnum;i++){
-               Column[i-1]=rsmd.getColumnClassName(i);
-                }
-            rs.last();
-            
-            int rows=rs.getRow();
-            rs.beforeFirst();
-            
-            String[][] data = new String[rows][colnum];
-            
-            int count=0; */
-            
+          
     }//GEN-LAST:event_SearchActionPerformed
 
     private void AuthorRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AuthorRadioActionPerformed
@@ -382,8 +350,7 @@ public class ViewBook extends javax.swing.JFrame {
         model = (DefaultTableModel) jTable1.getModel();
         while (model.getRowCount() > 0)
             model.removeRow(model.getRowCount() - 1);
-        // String Data[][]=null;
-        // String Column[]=null;
+        
         try (Connection Con = DB.getConnection()) {
             PreparedStatement ps = Con.prepareStatement("select * from Books", ResultSet.TYPE_SCROLL_SENSITIVE,
                     ResultSet.CONCUR_UPDATABLE);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2022 at 05:30 PM
+-- Generation Time: Jan 12, 2022 at 07:44 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -98,8 +98,8 @@ CREATE TABLE `fullname` (
 --
 
 CREATE TABLE `issuedbook` (
-  `BookID` int(11) DEFAULT NULL,
-  `UserID` int(11) DEFAULT NULL,
+  `BookID` int(11) NOT NULL,
+  `MatricsNo` varchar(8) NOT NULL,
   `IssueDate` date NOT NULL,
   `ReturnDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -108,30 +108,8 @@ CREATE TABLE `issuedbook` (
 -- Dumping data for table `issuedbook`
 --
 
-INSERT INTO `issuedbook` (`BookID`, `UserID`, `IssueDate`, `ReturnDate`) VALUES
-(5, 1, '2016-11-17', '2016-12-02'),
-(12, 2, '2016-11-17', '2016-12-02'),
-(6, 2, '2016-11-17', '2016-12-02');
-
---
--- Triggers `issuedbook`
---
-DELIMITER $$
-CREATE TRIGGER `IssuedBook_AFTER_INSERT` AFTER INSERT ON `issuedbook` FOR EACH ROW BEGIN
- UPDATE Book_Count 
-  SET BookNo = BookNo+1
-  where UserID = NEW.UserID;
-END
-$$
-DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER `count` AFTER DELETE ON `issuedbook` FOR EACH ROW BEGIN
-  UPDATE Book_Count 
-  SET BookNo = BookNo-1
-  where Book_Count.UserID = OLD.UserID;
-END
-$$
-DELIMITER ;
+INSERT INTO `issuedbook` (`BookID`, `MatricsNo`, `IssueDate`, `ReturnDate`) VALUES
+(1, 'test6', '2022-01-13', '2022-01-28');
 
 -- --------------------------------------------------------
 
@@ -154,22 +132,6 @@ CREATE TABLE `librarian` (
 INSERT INTO `librarian` (`LibrarianID`, `FullName`, `UserName`, `Password`, `Email`) VALUES
 (1, 'Enco Sier', 'Encosier', '1234', 'enco.cs.doc@gmail.com'),
 (2, 'Leloush Britannia', 'Zero', '9876', 'leloush.zero@bitannia.com');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `magazine`
---
-
-CREATE TABLE `magazine` (
-  `MagID` int(11) NOT NULL,
-  `VolNo` int(11) NOT NULL,
-  `Mname` varchar(30) NOT NULL,
-  `Magazine` varchar(30) NOT NULL,
-  `MagazineShelf` varchar(10) NOT NULL,
-  `Genre` varchar(10) NOT NULL,
-  `Publisher` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -266,12 +228,6 @@ ALTER TABLE `librarian`
   ADD PRIMARY KEY (`LibrarianID`);
 
 --
--- Indexes for table `magazine`
---
-ALTER TABLE `magazine`
-  ADD PRIMARY KEY (`MagID`);
-
---
 -- Indexes for table `publisher`
 --
 ALTER TABLE `publisher`
@@ -298,12 +254,6 @@ ALTER TABLE `books`
 --
 ALTER TABLE `librarian`
   MODIFY `LibrarianID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `magazine`
---
-ALTER TABLE `magazine`
-  MODIFY `MagID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `publisher`

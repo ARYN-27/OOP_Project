@@ -24,10 +24,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class UserViewBook extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ViewBook
-     * @throws java.sql.SQLException
-     */
+    
     public UserViewBook() throws SQLException {
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         
@@ -63,10 +60,6 @@ public class UserViewBook extends javax.swing.JFrame {
                  model.addRow(Row);
                   
             }
-   
-                    //count++;
-               
-            
            Con.close();
         }catch(Exception e){System.out.println(e);
     }
@@ -250,8 +243,7 @@ public class UserViewBook extends javax.swing.JFrame {
             model.removeRow(model.getRowCount()-1);
         if(NameRadio.isSelected())
         {
-       // String Data[][]=null;
-      //  String Column[]=null;
+       
             String Search = "%"+SearchField.getText()+"%";
         try(Connection Con = DB.getConnection()) {
             PreparedStatement ps=Con.prepareStatement("select A.BookID, A.BookName,A.Genre,A.Author,A.Publisher, A.Row,A.Shelf, IssuedBook.UserID from (select * from Books where BookName like ?) as A left outer join IssuedBook on A.BookID= IssuedBook.BookID",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
@@ -261,10 +253,7 @@ public class UserViewBook extends javax.swing.JFrame {
            ResultSetMetaData rsmd = rs.getMetaData();
   
             int colnum=rsmd.getColumnCount();
-            
-           
-     
-            //code here
+                       
             String Row[];
             Row = new String[colnum];
             while(rs.next()){
@@ -314,10 +303,6 @@ public class UserViewBook extends javax.swing.JFrame {
                 
                 
             }
-   
-                    //count++;
-               
-            
            Con.close();
         }catch(Exception e){System.out.println(e);
     } }
@@ -336,8 +321,6 @@ public class UserViewBook extends javax.swing.JFrame {
             int colnum=rsmd.getColumnCount();
             
            
-     
-            //code here
             String Row[];
             Row = new String[colnum];
             while(rs.next()){
@@ -380,10 +363,6 @@ public class UserViewBook extends javax.swing.JFrame {
                 
                 
             }
-   
-                    //count++;
-               
-            
            Con.close();
         }catch(Exception e){System.out.println(e);
     }
@@ -433,8 +412,7 @@ public class UserViewBook extends javax.swing.JFrame {
              flag=0;
          if(NotIssued.isSelected())
              flag=1;
-       // String Data[][]=null;
-      //  String Column[]=null;
+       
         try(Connection Con = DB.getConnection()) {
             PreparedStatement ps=Con.prepareStatement("select Books.BookID, Books.BookName,Books.Genre,Books.Author,Books.Publisher, Books.Row,Books.Shelf, IssuedBook.UserID from Books left outer join IssuedBook on Books.BookID= IssuedBook.BookID;",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
             ResultSet rs= ps.executeQuery();
@@ -471,10 +449,6 @@ public class UserViewBook extends javax.swing.JFrame {
                     }
                   
             }
-   
-                    //count++;
-               
-            
            Con.close();
         }catch(Exception e){System.out.println(e);
     }

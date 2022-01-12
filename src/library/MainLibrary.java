@@ -10,9 +10,7 @@ package library;
 
 public class MainLibrary extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MainLibrary
-     */
+    
     public MainLibrary() {
         initComponents();
     }

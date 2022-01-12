@@ -18,8 +18,8 @@ public class DB {
     props.put("user", "root");         
     props.put("password", "");
     props.put("useUnicode", "true");
-    props.put("useServerPrepStmts", "false"); // use client-side prepared statement
-    props.put("characterEncoding", "UTF-8"); // ensure charset is utf8 here
+    props.put("useServerPrepStmts", "false"); 
+    props.put("characterEncoding", "UTF-8"); 
 
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/library",props);

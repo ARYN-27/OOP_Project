@@ -13,10 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JFrame;
 
-/**
- *  public static JFrame ThisLogined;
- * @author bikash
- */
+
 public class LibrarianSuccess extends javax.swing.JFrame {
     
     public static JFrame ThisLogined;
@@ -399,12 +396,7 @@ public class LibrarianSuccess extends javax.swing.JFrame {
          }catch(SQLException f){System.out.println(f);}
         
     }
-    
-    /**
-     *
-     */
-
-
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

@@ -241,7 +241,7 @@ public class BookForm extends javax.swing.JFrame {
         }else{
                                 if(BookDBConn.AddPublisher(PublisherN)!=0)
                                 {
-                                  ; // JOptionPane.showMessageDialog(BookForm.this, "Sorry, Publisher can't be added!","Publisher Error!", JOptionPane.ERROR_MESSAGE);
+                                  ; 
                                 }
         }
         if(BookDBConn.SaveBook(BookN,AuthorN,PublisherN,ShelfN,RowN,GenreN)!=0)
