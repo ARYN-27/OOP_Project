@@ -54,7 +54,7 @@ public class IssueBookForm extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        UserID = new javax.swing.JTextField();
+        MatricsNo = new javax.swing.JTextField();
         BookID = new javax.swing.JTextField();
         IMonth = new javax.swing.JTextField();
         RMonth = new javax.swing.JTextField();
@@ -76,7 +76,7 @@ public class IssueBookForm extends javax.swing.JFrame {
         jLabel1.setText("Book ID");
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
-        jLabel2.setText("User ID");
+        jLabel2.setText("Matrics No.");
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
         jLabel3.setText("Issue Date");
@@ -100,9 +100,9 @@ public class IssueBookForm extends javax.swing.JFrame {
             }
         });
 
-        UserID.addActionListener(new java.awt.event.ActionListener() {
+        MatricsNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserIDActionPerformed(evt);
+                MatricsNoActionPerformed(evt);
             }
         });
 
@@ -189,7 +189,7 @@ public class IssueBookForm extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RYear, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(IYear, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(UserID, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(MatricsNo, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(106, 106, 106))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -216,7 +216,7 @@ public class IssueBookForm extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(UserID, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(MatricsNo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -247,8 +247,8 @@ public class IssueBookForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         int BookIDV;
         BookIDV = Integer.parseInt(BookID.getText());
-        int UserIDV;
-        UserIDV = Integer.parseInt(UserID.getText());
+        String MatricsNoIDV;
+        MatricsNoIDV = MatricsNo.getText();
         
         String IFDate = IYear.getText() + "-"+IMonth.getText()+"-"+IDate.getText();
         String RFDate = RYear.getText() + "-"+RMonth.getText()+"-"+RDate.getText();
@@ -258,19 +258,19 @@ public class IssueBookForm extends javax.swing.JFrame {
         
      
         
-        if(TransBookDBConn.BookValidate(BookID.getText()) && TransBookDBConn.UserValidate(UserID.getText()))
+        if(TransBookDBConn.BookValidate(BookID.getText()) && TransBookDBConn.UserValidate(MatricsNo.getText()))
         {
           
-            if(TransBookDBConn.Check(UserIDV)==0)
+            if(TransBookDBConn.Check(MatricsNoIDV)==0)
                JOptionPane.showMessageDialog(IssueBookForm.this, "User has already Issued Maximum No of Books","Issue Error!", JOptionPane.ERROR_MESSAGE); 
            else
             {
-            if(TransBookDBConn.IssueBook(BookIDV, UserIDV, IFDate, RFDate)!=0)
+            if(TransBookDBConn.IssueBook(BookIDV, MatricsNoIDV, IFDate, RFDate)!=0)
             {
               
                 JOptionPane.showMessageDialog(IssueBookForm.this, "The Book  is Issued!","Book Issued!", JOptionPane.ERROR_MESSAGE);
                 BookID.setText("");
-                UserID.setText("");
+                MatricsNo.setText("");
             }
             else
               JOptionPane.showMessageDialog(IssueBookForm.this, "Unable to Issue Book!","Issuing Book Error!", JOptionPane.ERROR_MESSAGE);
@@ -279,7 +279,7 @@ public class IssueBookForm extends javax.swing.JFrame {
             
         }
         else
-        {    if(TransBookDBConn.UserValidate(UserID.getText()))
+        {    if(TransBookDBConn.UserValidate(MatricsNo.getText()))
                     JOptionPane.showMessageDialog(IssueBookForm.this, "The Book  is NOT available in Library Database!","Issuing Book Error!", JOptionPane.ERROR_MESSAGE);
              else
                 if(TransBookDBConn.BookValidate(BookID.getText()))
@@ -298,9 +298,9 @@ public class IssueBookForm extends javax.swing.JFrame {
         ThisLogined.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void UserIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserIDActionPerformed
+    private void MatricsNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MatricsNoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserIDActionPerformed
+    }//GEN-LAST:event_MatricsNoActionPerformed
 
     private void IDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDateActionPerformed
         // TODO add your handling code here:
@@ -358,10 +358,10 @@ public class IssueBookForm extends javax.swing.JFrame {
     private javax.swing.JTextField IDate;
     private javax.swing.JTextField IMonth;
     private javax.swing.JTextField IYear;
+    private javax.swing.JTextField MatricsNo;
     private javax.swing.JTextField RDate;
     private javax.swing.JTextField RMonth;
     private javax.swing.JTextField RYear;
-    private javax.swing.JTextField UserID;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

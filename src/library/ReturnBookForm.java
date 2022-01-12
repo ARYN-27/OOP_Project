@@ -39,7 +39,7 @@ public class ReturnBookForm extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        UserID = new javax.swing.JTextField();
+        MatricsNo = new javax.swing.JTextField();
         BookID = new javax.swing.JTextField();
         IMonth = new javax.swing.JTextField();
         IYear = new javax.swing.JTextField();
@@ -54,7 +54,7 @@ public class ReturnBookForm extends javax.swing.JFrame {
         jLabel1.setText("Book ID");
 
         jLabel2.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
-        jLabel2.setText("User ID");
+        jLabel2.setText("Matrics No");
 
         jLabel4.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
         jLabel4.setText("Return Date");
@@ -75,9 +75,9 @@ public class ReturnBookForm extends javax.swing.JFrame {
             }
         });
 
-        UserID.addActionListener(new java.awt.event.ActionListener() {
+        MatricsNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserIDActionPerformed(evt);
+                MatricsNoActionPerformed(evt);
             }
         });
 
@@ -130,7 +130,7 @@ public class ReturnBookForm extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BookID, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(UserID, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MatricsNo, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(IDate, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -165,7 +165,7 @@ public class ReturnBookForm extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UserID, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MatricsNo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -190,8 +190,8 @@ public class ReturnBookForm extends javax.swing.JFrame {
         
         int BookIDV;
         BookIDV = Integer.parseInt(BookID.getText());
-        int UserIDV;
-        UserIDV = Integer.parseInt(UserID.getText());
+        String MatricsNoIDV;
+        MatricsNoIDV = MatricsNo.getText();
         
         String IFDate = IYear.getText() + "-"+IMonth.getText()+"-"+IDate.getText();
         System.out.println(IFDate);
@@ -200,15 +200,15 @@ public class ReturnBookForm extends javax.swing.JFrame {
         
      
         
-        if(TransBookDBConn.BookValidate(BookID.getText()) && TransBookDBConn.UserValidate(UserID.getText()))
+        if(TransBookDBConn.BookValidate(BookID.getText()) && TransBookDBConn.UserValidate(MatricsNo.getText()))
         {
                if(TransBookDBConn.CheckIssuedBook(BookIDV))
                {
                    
-                   if(TransBookDBConn.ReturnBook(BookIDV, UserIDV)!=0)
+                   if(TransBookDBConn.ReturnBook(BookIDV, MatricsNoIDV)!=0)
                    {
                         JOptionPane.showMessageDialog(ReturnBookForm.this, "Book is returned by the User!","Returning Book Successfull!", JOptionPane.ERROR_MESSAGE);
-                        UserID.setText("");
+                        MatricsNo.setText("");
                         BookID.setText("");
                    }
                    else
@@ -219,7 +219,7 @@ public class ReturnBookForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(ReturnBookForm.this, "The Book  is NOT Issued by THIS User!","Issuing Book Error!", JOptionPane.ERROR_MESSAGE);
         }
         else
-        {    if(TransBookDBConn.UserValidate(UserID.getText()))
+        {    if(TransBookDBConn.UserValidate(MatricsNo.getText()))
                     JOptionPane.showMessageDialog(ReturnBookForm.this, "The Book  is NOT available in Library Database!","Returning Book Error!", JOptionPane.ERROR_MESSAGE);
              else
                 if(TransBookDBConn.BookValidate(BookID.getText()))
@@ -236,9 +236,9 @@ public class ReturnBookForm extends javax.swing.JFrame {
         LibrarianSuccess.ThisLogined.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void UserIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserIDActionPerformed
+    private void MatricsNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MatricsNoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserIDActionPerformed
+    }//GEN-LAST:event_MatricsNoActionPerformed
 
     private void IYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IYearActionPerformed
         // TODO add your handling code here:
@@ -293,7 +293,7 @@ public class ReturnBookForm extends javax.swing.JFrame {
     private javax.swing.JTextField IDate;
     private javax.swing.JTextField IMonth;
     private javax.swing.JTextField IYear;
-    private javax.swing.JTextField UserID;
+    private javax.swing.JTextField MatricsNo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
