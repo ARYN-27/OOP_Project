@@ -7,7 +7,7 @@ package library;
  */
 
 import java.util.Calendar;
-//import java.util.Date;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import static library.LibrarianSuccess.ThisLogined;
 
@@ -72,16 +72,16 @@ public class IssueBookForm extends javax.swing.JFrame {
         setBackground(new java.awt.Color(121, 22, 127));
         setForeground(new java.awt.Color(30, 51, 252));
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
         jLabel1.setText("Book ID");
 
-        jLabel2.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
         jLabel2.setText("Matrics No.");
 
-        jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
         jLabel3.setText("Issue Date");
 
-        jLabel4.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
         jLabel4.setText("Return Date");
 
         jButton1.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
@@ -135,6 +135,12 @@ public class IssueBookForm extends javax.swing.JFrame {
         RYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RYearActionPerformed(evt);
+            }
+        });
+
+        RDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RDateActionPerformed(evt);
             }
         });
 
@@ -318,6 +324,10 @@ public class IssueBookForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BookIDActionPerformed
 
+    private void RDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RDateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -334,22 +344,16 @@ public class IssueBookForm extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IssueBookForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IssueBookForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IssueBookForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(IssueBookForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new IssueBookForm().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new IssueBookForm().setVisible(true);
         });
     }
 
